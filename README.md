@@ -19,3 +19,29 @@
 <br>수정,배포가 자유로우며 실무 혹은 상업적으로 이용이 허용되지만,
 <br>저작권 표시 및 허가 표시를 소프트웨어의 모든 복제물 혹은 중요한 부분에 작성해야 합니다.
 <br>또한,이 시스템의 제작자 milkyway0308은 소프트웨어 사용 관련해서 발생하는 문제에 책임을 지지 않습니다.
+
+
+<br><br>
+# SaveableSerializing System is...
+<br>Text based serializing system focused on speed and readability.
+<br>SaveableWriter execute serialization with like next format .
+<br>
+### start subset<br>
+#### items<br>
+### end subset<br>
+<br><br>
+SaveableReader default allows 250 deep of inner class.
+<br>This can change on create saveable object,<br>but we not recommanded that because of over 250 section waste many memory.
+<br>
+<br>Project default package is milkyway.SaveableSerializing.Parser
+<br>You can read Saveable Serialization after copy that package on your project.
+<br>ItemStack is Example Package,and contains ItemStack Serialization of lower 1.5.2 Minecraft ItemStack.
+<br>We will support higher 1.5.2 ItemStack Serialization,and we are in progress.
+<br>If you use lower 1.5.2 Serialization,ItemFlag can be ignored.
+<br>If you want to use ItemStack Serialization,Copy milkyway.SaveableSerializing.ItemStacks on your package with Default Saveeable project.
+<br>
+<br>
+This system follows <strong>MIT Lisence</strong>.
+<br>You are free at distribute and edit,and commercial use,
+<br>but you must make the copyright notice and permission mark on all copies or important parts of the software.
+<br>In addition, milkyway0308, the creator of this system, is not responsible for any problems with the use of the software without project bugs.
