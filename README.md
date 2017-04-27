@@ -38,7 +38,7 @@ SaveableReader default allows 250 deep of inner class.
 <br>ItemStack is Example Package,and contains ItemStack Serialization of lower 1.5.2 Minecraft ItemStack.
 <br>We will support higher 1.5.2 ItemStack Serialization,and we are in progress.
 <br>If you use lower 1.5.2 Serialization,ItemFlag can be ignored.
-<br>If you want to use ItemStack Serialization,Copy milkyway.SaveableSerializing.ItemStacks on your package with Default Saveeable project.
+<br>If you want to use ItemStack Serialization,Copy milkyway.SaveableSerializing.ItemStacks on your package with Default Saveable project.
 <br>
 <br>
 This system follows <strong>MIT Lisence</strong>.
