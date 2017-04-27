@@ -24,19 +24,19 @@
 <br><br>
 # SaveableSerializing System is...
 <br>Text based serializing system focused on speed and readability.
-<br>SaveableWriter execute serialization with like next format .
+<br>SaveableWriter executes serialization with like next format .
 <br>
 ### start subset<br>
 #### items<br>
 ### end subset<br>
 <br><br>
-SaveableReader default allows 250 deep of inner class.
-<br>This can change on create saveable object,<br>but we not recommanded that because of over 250 section waste many memory.
+SaveableReader basically allows 250 deep of inner class.
+<br>This can change about create saveable object,<br>but we don't recommanded that because of over 250 section waste many memory.
 <br>
-<br>Project default package is milkyway.SaveableSerializing.Parser
-<br>You can read Saveable Serialization after copy that package on your project.
-<br>ItemStack is Example Package,and contains ItemStack Serialization of lower 1.5.2 Minecraft ItemStack.
-<br>We will support higher 1.5.2 ItemStack Serialization,and we are in progress.
+<br>Basic package of project is milkyway.SaveableSerializing.Parser
+<br>You can read Saveable Serialization after copy that package "to" your project. 
+<br>ItemStack is Example Package, and contains ItemStack Serialization of lower 1.5.2 Minecraft ItemStack. 
+<br>We will support higher 1.5.2 ItemStack Serialization, and we are in progress. 
 <br>If you use lower 1.5.2 Serialization,ItemFlag can be ignored.
 <br>If you want to use ItemStack Serialization,Copy milkyway.SaveableSerializing.ItemStacks on your package with Default Saveable project.
 <br>
