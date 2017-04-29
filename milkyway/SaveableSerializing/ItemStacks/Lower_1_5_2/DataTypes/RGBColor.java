@@ -53,6 +53,6 @@ public class RGBColor implements SaveableData{
 
     @Override
     public SaveableData getNewInstance() {
-        return null;
+        return new RGBColor();
     }
 }
