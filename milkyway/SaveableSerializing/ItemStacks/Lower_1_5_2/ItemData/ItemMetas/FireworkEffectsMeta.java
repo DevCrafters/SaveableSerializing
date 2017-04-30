@@ -45,7 +45,9 @@ public class FireworkEffectsMeta extends SubMeta{
     public void setTo(ItemMeta meta) {
         if(meta instanceof FireworkEffectMeta){
             FireworkEffectMeta fire = (FireworkEffectMeta) meta;
-            fire.setEffect((FireworkEffect) me.getOriginal());
+            FireworkEffect ef = (FireworkEffect) me.getOriginal();
+            if(ef != null)
+                 fire.setEffect(ef);
         }
     }
 
