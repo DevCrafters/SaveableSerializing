@@ -54,7 +54,11 @@ public class FireworksMeta extends SubMeta{
             FireworkMeta metas = (FireworkMeta) meta;
             metas.setPower(power);
             for(FireworkEffects a : facts)
-            metas.addEffect((FireworkEffect) a.getOriginal());
+            {
+                FireworkEffect ef = (FireworkEffect) a.getOriginal();
+                if(ef != null)
+                    metas.addEffect(ef);   
+            }
         }
     }
 
