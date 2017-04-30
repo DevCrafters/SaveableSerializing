@@ -71,7 +71,9 @@ public class FireworkEffects implements SaveableData{
         try{
             t = FireworkEffect.Type.valueOf(fireworkType);
         }catch (Exception ex){}
-        return FireworkEffect.builder().with(t).flicker(isFlicker).trail(trail).withColor((List<Color>)main.getOriginal()).withFade((List<Color>)fade.getOriginal()).build();
+        if(((List<Color>)main.getOriginal()).size() >= 1)
+         return FireworkEffect.builder().with(t).flicker(isFlicker).trail(trail).withColor((List<Color>)main.getOriginal()).withFade((List<Color>)fade.getOriginal()).build();
+        return null;
     }
 
     @Override
