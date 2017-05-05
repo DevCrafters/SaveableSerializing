@@ -31,9 +31,11 @@ public class DefaultMeta implements SaveableData{
             meta = new SaveableEnchantBook().setFrom(m);
         else if(m instanceof FireworkEffectMeta)
             meta = new FireworkEffectsMeta().setFrom(m);
-        display = m.getDisplayName();
-        if(m.hasLore())
-            lore = m.getLore();
+        if(m != null){
+            display = m.getDisplayName();
+            if(m.hasLore())
+                lore = m.getLore();
+        }
     }
     public DefaultMeta(){}
     @Override
