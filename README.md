@@ -1,3 +1,7 @@
+### 현재 SaveableSerializing 시스템은 
+![](https://placeholdit.imgix.net/~text?txtsize=5&bg=ffffff&txtclr=30F03D&txt=%EC%95%88%EC%A0%95%ED%99%94&w=15&h=15&txttrack=0&txtpad=1)
+### 된 상태입니다.
+### System Version 0.1.4 ( Stable )
 # SaveableSerializing 시스템은,
 <br>가독성을 최대화시키고 속도를 중점에 둔 텍스트 기반 직렬화 시스템입니다.
 <br>start subset ~~ end subset  형식으로 직렬화의 입력과 출력을 실행하며,
