@@ -1,5 +1,11 @@
 ### 현재 SaveableSerializing 시스템은 <font color = "green"> 안정화 </font> 된 상태입니다.
 ### System Version 0.1.4 (<font color = "green"> Stable </font>)
+<br>## This system is aiming at serializing Java API up to 20%!
+<br>## Current Progress : 0% ( 0 / 848 ) - Java 8
+<br>## 이 시스템은 자바 API 20%의 직렬화를 목표로 하고 있습니다.
+<br>## 현재 진행 상황 : 0% (0/848) - 자바 8
+<br>
+<br>
 # SaveableSerializing 시스템은,
 <br>가독성을 최대화시키고 속도를 중점에 둔 텍스트 기반 직렬화 시스템입니다.
 <br>start subset ~~ end subset  형식으로 직렬화의 입력과 출력을 실행하며,
