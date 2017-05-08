@@ -1,8 +1,7 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
 
-import milkyway.ItemManagerAdvanced.Datas.ItemData.EnchantArray;
-import milkyway.ItemManagerAdvanced.Datas.ItemData.Enchants;
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+import milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.Enchants;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;

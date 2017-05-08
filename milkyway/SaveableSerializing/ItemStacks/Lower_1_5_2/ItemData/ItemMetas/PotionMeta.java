@@ -1,7 +1,7 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
 
-import milkyway.ItemManagerAdvanced.Datas.PotionEffects;
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+import milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.PotionEffects;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 

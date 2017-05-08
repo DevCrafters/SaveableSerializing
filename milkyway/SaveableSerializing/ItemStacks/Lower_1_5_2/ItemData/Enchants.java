@@ -1,6 +1,6 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData;
 
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.enchantments.Enchantment;
 
 import java.io.BufferedWriter;

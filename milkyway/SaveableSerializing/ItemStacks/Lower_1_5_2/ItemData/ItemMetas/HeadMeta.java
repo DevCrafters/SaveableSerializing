@@ -1,6 +1,6 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
 
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 

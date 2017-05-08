@@ -1,7 +1,7 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
 
-import milkyway.ItemManagerAdvanced.Datas.DataTypes.ListSaveable;
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+import milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.DataTypes.ListSaveable;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.inventory.meta.*;
 
 import java.io.BufferedWriter;

@@ -1,7 +1,8 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.ItemMetas;
 
-import milkyway.ItemManagerAdvanced.Datas.ItemData.FireworkEffects;
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+
+import milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData.FireworkEffects;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.FireworkEffect;
 import org.bukkit.inventory.meta.FireworkEffectMeta;
 import org.bukkit.inventory.meta.ItemMeta;

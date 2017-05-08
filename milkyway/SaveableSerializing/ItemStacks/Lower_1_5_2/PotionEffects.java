@@ -1,5 +1,6 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2;
 
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by Developer_Unlocated on 2017-04-18.
  */
-public class PotionEffects implements SaveableData{
+public class PotionEffects implements SaveableData {
     int type;
     int lv;
     int duration;

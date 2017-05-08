@@ -1,7 +1,8 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.ItemData;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.ItemData;
 
-import milkyway.ItemManagerAdvanced.Datas.DataTypes.ListRGB;
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+
+import milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.DataTypes.ListRGB;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 

@@ -1,6 +1,6 @@
-package milkyway.ItemManagerAdvanced.ItemStacks.Lower_1_5_2.DataTypes;
+package milkyway.SaveableSerializing.ItemStacks.Lower_1_5_2.DataTypes;
 
-import milkyway.ItemManagerAdvanced.Datas.SaveableData;
+import milkyway.SaveableSerializing.Parser.SaveableData;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
