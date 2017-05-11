@@ -17,7 +17,7 @@ import java.util.List;
 public class LeatherArmoursMeta extends SubMeta{
     RGBColor color = new RGBColor(Color.BLACK);
     @Override
-    public void writeBy(StringBuilder builder) throws IOException {
+    public void writeBy(StringBuilder builder) {
         color.appendSubSet(builder);
     }
 

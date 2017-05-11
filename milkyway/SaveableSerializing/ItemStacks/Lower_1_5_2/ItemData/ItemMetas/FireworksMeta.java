@@ -18,7 +18,7 @@ public class FireworksMeta extends SubMeta{
     List<FireworkEffects> facts = new ArrayList<>();
     int power = 0;
     @Override
-    public void writeBy(StringBuilder  builder) throws IOException {
+    public void writeBy(StringBuilder  builder) {
         builder.append(String.valueOf(power)).append("\n");
         for(FireworkEffects a : facts)
             a.appendSubSet(builder);

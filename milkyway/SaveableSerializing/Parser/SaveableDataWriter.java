@@ -23,6 +23,17 @@ public class SaveableDataWriter {
         toWrite.clear();
     }
 
+    /**
+     * 해당 메소드는 {@link SaveableData}를 String으로 반환해줍니다.
+     * This Method return String from  {@link SaveableData}.
+     * @Since SaveableSerialize 0.3.1
+     *
+     */
+    public static String getSaveableAsString(SaveableData data){
+        StringBuilder builder = new StringBuilder();
+        data.appendSubSet(builder);
+        return builder.toString();
+    }
     public void flush(){
         try{
             if(targetFile.exists())

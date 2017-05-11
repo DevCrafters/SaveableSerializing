@@ -16,14 +16,17 @@ public class StaticSaveableDataRegistry {
      *  You must register your custom Saveable Object's instance here.
      *  If {@link SaveableDataReader} read unregistered object,SaveableReader will return {@link NullSaveableData}
 	*/
-	private StaticSaveableDataRegistry(){
-        new MinecraftParser_Lower152().register();
-        new Java8_Parser().register();
-
-    }
     public static StaticSaveableDataRegistry getHandle(){
+        if(handle == null)
+        {
+            handle = new StaticSaveableDataRegistry();
+            new MinecraftParser_Lower152().register();
+            new Java8_Parser().register();
+        }
         return handle;
     }
+	private StaticSaveableDataRegistry(){}
+
     private HashMap<String,SaveableData> tempDAta = new HashMap<>();
     public void registerSaveable(SaveableData data){
         if(data.getName() == null)

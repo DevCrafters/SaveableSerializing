@@ -39,7 +39,7 @@ public class DefaultMeta implements SaveableData{
     }
     public DefaultMeta(){}
     @Override
-    public void writeBy(StringBuilder  builder) throws IOException {
+    public void writeBy(StringBuilder  builder) {
         if(display != null)
         builder.append(display).append("\n");
         new ListSaveable(lore).appendSubSet(builder);

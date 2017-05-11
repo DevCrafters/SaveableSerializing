@@ -17,7 +17,7 @@ import java.util.List;
 public class FireworkEffectsMeta extends SubMeta{
     FireworkEffects me = null;
     @Override
-    public void writeBy(StringBuilder  builder) throws IOException {
+    public void writeBy(StringBuilder  builder) {
         me.appendSubSet(builder);
     }
 

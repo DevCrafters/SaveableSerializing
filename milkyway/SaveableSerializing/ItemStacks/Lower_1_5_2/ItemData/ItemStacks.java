@@ -29,7 +29,7 @@ public class ItemStacks implements SaveableData {
     }
     public ItemStacks(){}
     @Override
-    public void writeBy(StringBuilder builder) throws IOException {
+    public void writeBy(StringBuilder builder) {
         builder.append(String.valueOf(id)).append("\n").append(String.valueOf(durability)).append("\n").append(String.valueOf(amount)).append("\n");
         array.appendSubSet(builder);
         meta.appendSubSet(builder);

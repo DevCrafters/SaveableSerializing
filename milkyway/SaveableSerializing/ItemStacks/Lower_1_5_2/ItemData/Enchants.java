@@ -20,7 +20,7 @@ public class Enchants implements SaveableData{
         level = lv;
     }
     @Override
-    public void writeBy(StringBuilder builder) throws IOException {
+    public void writeBy(StringBuilder builder) {
         builder.append(String.valueOf(id)).append("\n");
         builder.append(String.valueOf(level)).append("\n");
     }

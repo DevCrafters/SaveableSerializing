@@ -22,7 +22,7 @@ public class PotionEffects implements SaveableData {
     }
     public PotionEffects(){}
     @Override
-    public void writeBy(StringBuilder builder) throws IOException {
+    public void writeBy(StringBuilder builder) {
         builder.append(String.valueOf(type)).append("\n");
         builder.append(String.valueOf(lv)).append("\n");
         builder.append(String.valueOf(duration)).append("\n");

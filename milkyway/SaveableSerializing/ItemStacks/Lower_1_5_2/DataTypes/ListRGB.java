@@ -22,7 +22,7 @@ public class ListRGB implements SaveableData{
             color.add(new RGBColor(colors));
     }
     @Override
-    public void writeBy(StringBuilder  builder) throws IOException {
+    public void writeBy(StringBuilder  builder) {
         for(RGBColor colors : color)
             colors.appendSubSet(builder);
     }

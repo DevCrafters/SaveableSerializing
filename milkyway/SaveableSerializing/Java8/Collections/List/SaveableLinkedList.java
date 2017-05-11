@@ -93,7 +93,7 @@ public class SaveableLinkedList extends SaveableList{
     }
 
     @Override
-    public void writeBy(StringBuilder builder) throws IOException {
+    public void writeBy(StringBuilder builder) {
         builder.append(type.name()).append("\n");
         if(type == GenericsResolver.ItemType.Saveable)
             for(Object a : list)

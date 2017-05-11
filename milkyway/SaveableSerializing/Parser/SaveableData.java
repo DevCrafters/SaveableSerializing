@@ -17,7 +17,7 @@ public interface SaveableData {
 	* 만약 서브 메타 클래스가 있을 경우,
 	* data.appendSubSet(builder);로 사용하시면 됩니다.
 	*/
-   void writeBy(StringBuilder builder) throws IOException;
+   void writeBy(StringBuilder builder) ;
    
    /**
    * 이 메소드는 이 직렬화 객체가 파일에서 읽어 들어와졌을 시,읽어진
@@ -38,7 +38,7 @@ public interface SaveableData {
 	* List<String>에서 제외하고 이 메소드로 차례대로 불러집니다.
 	*/
     void appendObject(String str,SaveableData data);
-    default void appendSubSet(StringBuilder build) throws IOException{
+    default void appendSubSet(StringBuilder build){
         build.append("start subset ").append(getName()).append("\n");
         writeBy(build);
         build.append("end subset\n");

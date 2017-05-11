@@ -22,6 +22,80 @@ public class SaveableDataReader {
             throw new Exception("임시 리스트 저장소 깊이는 1 이상이여야 합니다!");
         deepArray = arraySize;
     }
+
+    /**
+     * 해당 메소드는 직렬화된 {@link SaveableData} 객체를 원 상태로 돌려줍니다.
+     * This Method return serialized {@link SaveableData} string to original.
+     * @Since SaveableSerialize 0.3.1
+     *
+     */
+    public static SaveableData readObject(String builder){
+        return readObject(builder,250);
+    }
+
+    /**
+     * 해당 메소드는 직렬화된 {@link SaveableData} 객체를 원 상태로 돌려줍니다.
+     * This Method return serialized {@link SaveableData} string to original.
+     * @Since SaveableSerialize 0.3.1
+     *
+     */
+    public static SaveableData readObject(String builder,int deepArray){
+        List<String>[] arrayLeft = new List[deepArray];
+        String[] strings = builder.split("\n");
+        if(strings.length <= 1){
+            return  new NullSaveableData();
+        }
+        if(strings[0].startsWith("start subset") && strings[strings.length-1].equals("end subset")){
+            try{
+                int currentdeep = 0;
+                List<SaveableData> dataReading = new ArrayList<>();
+                arrayLeft[currentdeep] = new ArrayList<>();
+                for(String str : strings){
+                    if(currentdeep >= deepArray)
+                        throw new Exception("이너 메타 개수 상한에 도달하였습니다 : 해당 Reader은 이너 메타가 " + deepArray + "개 이하여지만 인식이 가능합니다.");
+                    if(dataReading.size() <= 0){
+                        if(str.startsWith("start subset "))
+                        {
+                            SaveableData data = StaticSaveableDataRegistry.getHandle().getDataWithNewInstance(str.substring(13,str.length()));
+                            if(data != null)
+                                dataReading.add(data);
+                            arrayLeft[currentdeep] = new ArrayList<>();
+                        }
+                    }else{
+                        if(str.startsWith("start subset "))
+                        {
+                            SaveableData data = StaticSaveableDataRegistry.getHandle().getDataWithNewInstance(str.substring(13,str.length()));
+                            if(data != null)
+                            {
+                                arrayLeft[++currentdeep] = new ArrayList<>();
+                                dataReading.add(data);
+
+                            }
+                        }else if(str.equals("end subset")){
+
+                            if(currentdeep == 0){
+
+                                dataReading.get(0).appendTo(arrayLeft[currentdeep]);
+                               return dataReading.get(0);
+                            }else{
+
+                                SaveableData obj = dataReading.get(currentdeep);
+                                obj.appendTo(arrayLeft[currentdeep]);
+                                dataReading.remove(currentdeep--);
+                                dataReading.get(currentdeep).appendObject(obj.getName(),obj);
+                            }
+
+                        }else
+                            arrayLeft[(currentdeep >= 0) ? currentdeep : 0].add(str);
+                    }
+                }
+                return dataReading.get(0);
+            }catch (Exception ex){ex.printStackTrace();}
+        }
+
+        return new NullSaveableData();
+
+    }
     public List<SaveableData> read(){
         List<String>[] arrayLeft = new List[deepArray];
         int currentdeep = 0;

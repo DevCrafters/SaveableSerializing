@@ -34,7 +34,7 @@ public class FireworkEffects implements SaveableData{
         }
     }
     @Override
-    public void writeBy(StringBuilder builder) throws IOException {
+    public void writeBy(StringBuilder builder) {
         builder.append(String.valueOf(isFlicker)).append("\n");
         builder.append(String.valueOf(trail)).append("\n");
         builder.append(fireworkType).append("\n");
