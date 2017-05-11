@@ -18,7 +18,7 @@ public class SaveableBookMeta extends SubMeta{
     List<String> page = new ArrayList<>();
     String author = "Mr.Minecraft";
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder builder) throws IOException {
         builder.append(author).append("\n");
         new ListSaveable(page).appendSubSet(builder);
     }

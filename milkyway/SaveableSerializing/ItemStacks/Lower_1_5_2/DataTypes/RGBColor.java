@@ -21,7 +21,7 @@ public class RGBColor implements SaveableData{
         green = col.getGreen();
     }
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder  builder) throws IOException {
         builder.append(String.valueOf(red)).append("\n");
         builder.append(String.valueOf(blue)).append("\n");
         builder.append(String.valueOf(green)).append("\n");

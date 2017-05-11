@@ -21,7 +21,7 @@ public class EnchantArray implements SaveableData,ItemValidator{
 
     }
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder builder) throws IOException {
         for(Enchants a : myEnchant)
             a.appendSubSet(builder);
     }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class NullSaveableData implements SaveableData{
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder builder) throws IOException {
 
     }
 

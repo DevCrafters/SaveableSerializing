@@ -17,7 +17,7 @@ import java.util.List;
 public class SaveableEnchantBook extends SubMeta{
     List<Enchants> array = new ArrayList<>();
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder builder) throws IOException {
         for(Enchants b : array)
             b.appendSubSet(builder);
     }

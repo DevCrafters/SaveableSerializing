@@ -18,6 +18,7 @@ public class StaticSaveableDataRegistry {
 	*/
 	private StaticSaveableDataRegistry(){
         new MinecraftParser_Lower152().register();
+        new Java8_Parser().register();
 
     }
     public static StaticSaveableDataRegistry getHandle(){

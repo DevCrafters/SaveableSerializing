@@ -16,7 +16,7 @@ public class ListSaveable implements SaveableData{
         this.data = data;
     }
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder  builder) throws IOException {
         for(String n : data)
             builder.append(n).append("\n");
     }

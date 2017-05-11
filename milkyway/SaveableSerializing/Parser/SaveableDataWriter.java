@@ -31,12 +31,16 @@ public class SaveableDataWriter {
             targetFile.createNewFile();
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(targetFile));
+            StringBuilder builder = new StringBuilder();
             for(SaveableData dat : toWrite)
             {
                 writer.append("start subset ").append(dat.getName()).append("\n");
-                dat.writeBy(writer);
+                dat.writeBy(builder);
+                writer.append(builder);
                 writer.append("end subset\n");
+                builder = new StringBuilder();
             }
+
             writer.flush();
             writer.close();
             }catch (Exception ex){}

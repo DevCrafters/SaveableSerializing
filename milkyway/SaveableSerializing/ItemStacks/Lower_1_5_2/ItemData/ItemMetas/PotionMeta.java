@@ -16,7 +16,7 @@ import java.util.List;
 public class PotionMeta extends SubMeta{
     List<PotionEffects> data = new ArrayList<>();
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder builder) throws IOException {
         for(PotionEffects d : data)
             d.appendSubSet(builder);
     }

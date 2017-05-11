@@ -14,7 +14,7 @@ import java.util.List;
 public class HeadMeta extends SubMeta{
     String owner = "Player";
     @Override
-    public void writeBy(BufferedWriter builder) throws IOException {
+    public void writeBy(StringBuilder builder) throws IOException {
         builder.append(owner).append("\n");
     }
 
