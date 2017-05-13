@@ -48,6 +48,30 @@ public class SaveableHashMap extends SaveableMap{
     }
 
     @Override
+    public boolean put(Object key, Object value)  {
+        if(key != null){
+            if(!resolver[0].getResolver().canResolve(value))
+                return false;
+            if(value != null){
+                if(!resolver[0].getResolver().canResolve(value))
+                    return false;
+                map.put(key,value);
+            }else{
+                map.put(null,null);
+            }
+        }else{
+            if(value != null){
+                if(!resolver[1].getResolver().canResolve(value))
+                    return false;
+                map.put(null,value);
+            }else{
+               map.put(null,null);
+            }
+        }
+
+        return true;
+    }
+    @Override
     public Object getOrDefault(Object key, Object defaultValue) {
         return map.getOrDefault(key,defaultValue);
     }
@@ -55,8 +79,8 @@ public class SaveableHashMap extends SaveableMap{
     @Override
     public Object getOrputDefault(Object key, Object defaultValue) {
         if(!map.containsKey(key))
-            map.put(key,defaultValue);
-        return map.get(key);
+           put(key,defaultValue);
+        return get(key);
     }
 
     @Override

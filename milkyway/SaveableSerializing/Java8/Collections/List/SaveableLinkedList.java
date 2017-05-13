@@ -3,6 +3,7 @@ package milkyway.SaveableSerializing.Java8.Collections.List;
 import milkyway.SaveableSerializing.Java8.API.GenericsResolver;
 import milkyway.SaveableSerializing.Java8.Exceptions.CollectionsNullException;
 import milkyway.SaveableSerializing.Java8.Exceptions.TypeNotSupportedException;
+import milkyway.SaveableSerializing.Parser.NullSaveableData;
 import milkyway.SaveableSerializing.Parser.SaveableData;
 
 import java.io.BufferedWriter;
@@ -97,10 +98,15 @@ public class SaveableLinkedList extends SaveableList{
         builder.append(type.name()).append("\n");
         if(type == GenericsResolver.ItemType.Saveable)
             for(Object a : list)
-                ((SaveableData)a).appendSubSet(builder);
+               if(a != null)
+                   ((SaveableData)a).appendSubSet(builder);
+                else
+                    new NullSaveableData().appendSubSet(builder);
         else
             for(Object a : list)
-                builder.append("`").append(a.toString()).append("\n");
+                if(a != null)
+                    builder.append("`").append(a.toString()).append("\n");
+                else   builder.append("`").append("SaveableNxNullPointerItemObject").append("\n");
     }
 
     @Override

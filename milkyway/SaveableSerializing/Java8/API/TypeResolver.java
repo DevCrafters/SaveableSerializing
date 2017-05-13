@@ -12,7 +12,7 @@ public interface TypeResolver {
 
         @Override
         public boolean canResolve(Object obj) {
-            return obj instanceof String;
+            return obj == null || obj instanceof String;
         }
         public Object resolve(Object obj){
             return obj;
@@ -22,7 +22,7 @@ public interface TypeResolver {
 
         @Override
         public boolean canResolve(Object obj) {
-            return obj instanceof Integer;
+            return obj == null || obj instanceof Integer;
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
@@ -34,7 +34,7 @@ public interface TypeResolver {
 
         @Override
         public boolean canResolve(Object obj) {
-            return obj instanceof Byte;
+            return obj == null ||obj instanceof Byte;
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
@@ -46,7 +46,7 @@ public interface TypeResolver {
 
         @Override
         public boolean canResolve(Object obj) {
-            return obj instanceof Double;
+            return obj == null || obj instanceof Double;
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
@@ -58,7 +58,7 @@ public interface TypeResolver {
 
         @Override
         public boolean canResolve(Object obj) {
-            return obj instanceof Float;
+            return obj == null || obj instanceof Float;
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
@@ -81,7 +81,7 @@ public interface TypeResolver {
 
         @Override
         public boolean canResolve(Object obj) {
-            return obj instanceof SaveableData;
+            return obj == null || obj instanceof SaveableData;
         }
         public Object resolve(Object obj){
             return obj;

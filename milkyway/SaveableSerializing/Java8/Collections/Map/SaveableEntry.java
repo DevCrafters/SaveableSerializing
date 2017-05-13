@@ -32,9 +32,9 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
                new NullSaveableData().appendSubSet(builder);
         else
             if(key != null)
-                builder.append(key.toString()).append("\n");
+                builder.append("`").append(key.toString()).append("\n");
             else
-                builder.append(type[0].getNullDefaultObject().toString()).append("\n");
+                builder.append("`").append(type[0].getNullDefaultObject().toString()).append("\n");
 
         if(type[1] == GenericsResolver.ItemType.Saveable)
             if(value != null)
@@ -43,9 +43,9 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
                 new NullSaveableData().appendSubSet(builder);
         else
         if(value != null)
-            builder.append(value.toString()).append("\n");
+            builder.append("`").append(value.toString()).append("\n");
         else
-            builder.append(type[1].getNullDefaultObject().toString()).append("\n");
+            builder.append("`").append(type[1].getNullDefaultObject().toString()).append("\n");
 
     }
     public Object getKey(){
@@ -62,10 +62,20 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
             type[1] = GenericsResolver.ItemType.valueOf(builded.get(1));
         }catch (Exception ex){}
         try{
-            key = type[0].getResolver().resolve(builded.get(2));
+            String a = builded.get(2);
+            a = a.substring(1,a.length());
+            if(a.equals("SaveableNxNullPointerItemObject"))
+                 key = null;
+            else
+                key = type[0].getResolver().resolve(a);
         }catch (Exception ex){}
         try{
-            value = type[1].getResolver().resolve(builded.get(3));
+            String a = builded.get(3);
+            a = a.substring(1,a.length());
+            if(a.equals("SaveableNxNullPointerItemObject"))
+                value= null;
+            else
+            value = type[1].getResolver().resolve(a);
         }catch (Exception ex){}
     }
     @Override
