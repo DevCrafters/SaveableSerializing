@@ -76,7 +76,7 @@ public class SaveableDataReader {
                             if(currentdeep == 0){
 
                                 dataReading.get(0).appendTo(arrayLeft[currentdeep]);
-                               return dataReading.get(0);
+                                return dataReading.get(0);
                             }else{
 
                                 SaveableData obj = dataReading.get(currentdeep);

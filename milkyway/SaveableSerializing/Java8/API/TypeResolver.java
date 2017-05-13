@@ -7,11 +7,15 @@ import milkyway.SaveableSerializing.Parser.SaveableData;
  */
 public interface TypeResolver {
     public boolean canResolve(Object obj);
+    public Object resolve(Object obj);
     public class StringResolver implements TypeResolver{
 
         @Override
         public boolean canResolve(Object obj) {
             return obj instanceof String;
+        }
+        public Object resolve(Object obj){
+            return obj;
         }
     }
     public class IntegerResolver implements TypeResolver{
@@ -20,12 +24,22 @@ public interface TypeResolver {
         public boolean canResolve(Object obj) {
             return obj instanceof Integer;
         }
+        public Object resolve(Object obj){
+            if(obj != null && obj instanceof String)
+                try{return Integer.parseInt((String)obj);}catch (Exception ex){}
+            return obj;
+        }
     }
     public class ByteResolver implements TypeResolver{
 
         @Override
         public boolean canResolve(Object obj) {
             return obj instanceof Byte;
+        }
+        public Object resolve(Object obj){
+            if(obj != null && obj instanceof String)
+                try{return Byte.parseByte((String)obj);}catch (Exception ex){}
+            return obj;
         }
     }
     public class DoubleResolver implements TypeResolver{
@@ -34,12 +48,22 @@ public interface TypeResolver {
         public boolean canResolve(Object obj) {
             return obj instanceof Double;
         }
+        public Object resolve(Object obj){
+            if(obj != null && obj instanceof String)
+                try{return Double.parseDouble((String)obj);}catch (Exception ex){}
+            return obj;
+        }
     }
     public class FloatResolver implements TypeResolver{
 
         @Override
         public boolean canResolve(Object obj) {
             return obj instanceof Float;
+        }
+        public Object resolve(Object obj){
+            if(obj != null && obj instanceof String)
+                try{return Float.parseFloat((String)obj);}catch (Exception ex){}
+            return obj;
         }
     }
 
@@ -49,12 +73,18 @@ public interface TypeResolver {
         public boolean canResolve(Object obj) {
             return true;
         }
+        public Object resolve(Object obj){
+            return obj;
+        }
     }
     public class SaveableResolver implements TypeResolver{
 
         @Override
         public boolean canResolve(Object obj) {
             return obj instanceof SaveableData;
+        }
+        public Object resolve(Object obj){
+            return obj;
         }
     }
 }

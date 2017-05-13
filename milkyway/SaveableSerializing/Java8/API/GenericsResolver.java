@@ -13,13 +13,18 @@ import java.util.*;
  */
 public class GenericsResolver {
     public enum ItemType{
-        String(new TypeResolver.StringResolver()),Integer(new TypeResolver.IntegerResolver()),Double(new TypeResolver.DoubleResolver())
-        ,Float(new TypeResolver.FloatResolver()),Byte(new TypeResolver.ByteResolver()),Saveable(new TypeResolver.SaveableResolver()),Empty(new TypeResolver.EmprtyResolver());
-        private ItemType(TypeResolver resolver){
+        String(new TypeResolver.StringResolver(),"null"),Integer(new TypeResolver.IntegerResolver(),0),Double(new TypeResolver.DoubleResolver(),0d)
+        ,Float(new TypeResolver.FloatResolver(),0f),Byte(new TypeResolver.ByteResolver(),(byte)0),Saveable(new TypeResolver.SaveableResolver(),new NullSaveableData()),Empty(new TypeResolver.EmprtyResolver(),new NullSaveableData());
+        private ItemType(TypeResolver resolver,Object nullDefault){
             solver = resolver;
+            this.nullDefault = nullDefault;
         }
         public TypeResolver getResolver(){
             return solver;
+        }
+        private final Object nullDefault;
+        public Object getNullDefaultObject(){
+            return nullDefault;
         }
         private final TypeResolver solver;
     }
