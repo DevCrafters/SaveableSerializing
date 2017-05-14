@@ -15,7 +15,10 @@ public interface TypeResolver {
             return obj == null || obj instanceof String;
         }
         public Object resolve(Object obj){
-            return obj;
+            if(obj != null)
+                return obj.toString();
+
+            return null;
         }
     }
     public class IntegerResolver implements TypeResolver{
@@ -50,7 +53,7 @@ public interface TypeResolver {
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
-                try{return Double.parseDouble((String)obj);}catch (Exception ex){}
+                try{return Double.parseDouble((String)obj);}catch (Exception ex){ex.printStackTrace();}
             return obj;
         }
     }

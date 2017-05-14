@@ -2,6 +2,7 @@ package milkyway.SaveableSerializing.Java8.Collections.Map;
 
 import milkyway.SaveableSerializing.Java8.API.GenericsResolver;
 import milkyway.SaveableSerializing.Java8.Collections.SaveableCollection;
+import milkyway.SaveableSerializing.Java8.Object.SaveableDefaultObject;
 import milkyway.SaveableSerializing.Parser.NullSaveableData;
 import milkyway.SaveableSerializing.Parser.SaveableData;
 
@@ -19,7 +20,9 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
         this.value = value;
         this.type = type;
     }
-    public SaveableEntry(){}
+    public SaveableEntry(){
+
+    }
     @Override
     public void writeBy(StringBuilder builder) {
         builder.append(type[0].name()).append("\n");
@@ -29,12 +32,12 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
             if(key != null)
                 ((SaveableData)key).appendSubSet(builder);
             else
-               new NullSaveableData().appendSubSet(builder);
+                new NullSaveableData().appendSubSet(builder);
         else
-            if(key != null)
-                builder.append("`").append(key.toString()).append("\n");
-            else
-                builder.append("`").append(type[0].getNullDefaultObject().toString()).append("\n");
+        if(key != null)
+            new SaveableDefaultObject(key.toString()).appendSubSet(builder);
+        else
+            new SaveableDefaultObject(type[0].getNullDefaultObject().toString()).appendSubSet(builder);
 
         if(type[1] == GenericsResolver.ItemType.Saveable)
             if(value != null)
@@ -43,9 +46,9 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
                 new NullSaveableData().appendSubSet(builder);
         else
         if(value != null)
-            builder.append("`").append(value.toString()).append("\n");
+            new SaveableDefaultObject(value.toString()).appendSubSet(builder);
         else
-            builder.append("`").append(type[1].getNullDefaultObject().toString()).append("\n");
+            new SaveableDefaultObject(type[1].getNullDefaultObject().toString()).appendSubSet(builder);
 
     }
     public Object getKey(){
@@ -61,22 +64,24 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
             type[0] = GenericsResolver.ItemType.valueOf(builded.get(0));
             type[1] = GenericsResolver.ItemType.valueOf(builded.get(1));
         }catch (Exception ex){}
-        try{
-            String a = builded.get(2);
-            a = a.substring(1,a.length());
-            if(a.equals("SaveableNxNullPointerItemObject"))
-                 key = null;
+        if(key != null)
+            if(type[0] != GenericsResolver.ItemType.Saveable)
+                if(((SaveableDefaultObject)key).object.equals("SaveableNxNullPointerItemObject"))
+                    key = null;
+                else
+                    key = type[0].getResolver().resolve(((SaveableDefaultObject)key).object);
             else
-                key = type[0].getResolver().resolve(a);
-        }catch (Exception ex){}
-        try{
-            String a = builded.get(3);
-            a = a.substring(1,a.length());
-            if(a.equals("SaveableNxNullPointerItemObject"))
-                value= null;
+            if(key instanceof NullSaveableData)
+                key = null;
+        if(value != null)
+            if(type[1] != GenericsResolver.ItemType.Saveable)
+                if(((SaveableDefaultObject)value).object.equals("SaveableNxNullPointerItemObject"))
+                    value = null;
+                else
+                    value = type[1].getResolver().resolve(((SaveableDefaultObject)value).object);
             else
-            value = type[1].getResolver().resolve(a);
-        }catch (Exception ex){}
+            if(value instanceof NullSaveableData)
+                value = null;
     }
     @Override
     public boolean finalizeObject(){
@@ -91,10 +96,11 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
 
     @Override
     public void appendObject(String str, SaveableData data) {
-        if(key != null)
+        if(key == null)
             key = data;
         else
             value = data;
+        //  System.out.println("Object appended / " + str);
     }
 
     @Override
@@ -104,6 +110,6 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
 
     @Override
     public SaveableData getNewInstance() {
-        return new SaveableHashMap();
+        return new SaveableEntry();
     }
 }

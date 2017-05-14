@@ -8,7 +8,7 @@ import java.util.HashMap;
  * Created by Developer_Unlocated on 2017-04-18.
  */
 public class StaticSaveableDataRegistry {
-    private static StaticSaveableDataRegistry handle = new StaticSaveableDataRegistry();
+    private static StaticSaveableDataRegistry handle = null;
 	/**
 	*   반드시 이 선언부에 사용하실 클래스의 인스턴스를 등록해 주셔야 합니다.
 	*   등록되지 않은 인스턴스의 경우,NullSaveableData로 처리되어 눌값이 반환됩니다.

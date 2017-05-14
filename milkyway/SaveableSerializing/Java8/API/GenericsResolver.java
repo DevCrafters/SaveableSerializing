@@ -37,7 +37,7 @@ public class GenericsResolver {
             if(entrys != null)
                 return resolve(entrys);
         }
-            throw new CollectionsNullException();
+        throw new CollectionsNullException();
 
     }
     public static ItemType[] resolveGenerics(HashMap map) throws TypeNotSupportedException,CollectionsNullException {
@@ -75,3 +75,4 @@ public class GenericsResolver {
     }
 
 }
+

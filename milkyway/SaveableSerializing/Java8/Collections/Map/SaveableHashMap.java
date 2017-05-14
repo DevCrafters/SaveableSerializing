@@ -14,23 +14,24 @@ public class SaveableHashMap extends SaveableMap{
     private GenericsResolver.ItemType[] resolver = new GenericsResolver.ItemType[]{GenericsResolver.ItemType.Empty,GenericsResolver.ItemType.Empty};
     private HashMap<Object,Object> map = new HashMap<>();
     private List<SaveableEntry> tempEntry = new ArrayList<>();
-    public SaveableHashMap(HashMap map) throws CollectionsNullException,TypeNotSupportedException {
-        resolver = GenericsResolver.resolveGenerics(map);
-        for(Object entry4 : map.entrySet()){
+    public SaveableHashMap(HashMap mapObj) throws CollectionsNullException,TypeNotSupportedException {
+        resolver = GenericsResolver.resolveGenerics(mapObj);
+        for(Object entry4 : mapObj.entrySet()){
             Map.Entry entry  = (Map.Entry) entry4;
             tempEntry.add(new SaveableEntry(entry.getKey(),entry.getValue(),resolver));
         }
         finalizeObject();
     }
-    public SaveableHashMap(HashMap map,boolean isLinked) throws CollectionsNullException,TypeNotSupportedException {
+    public SaveableHashMap(HashMap mapObj,boolean isLinked) throws CollectionsNullException,TypeNotSupportedException {
         if(isLinked)
             map = new LinkedHashMap();
-        resolver = GenericsResolver.resolveGenerics(map);
-        for(Object entry4 : map.entrySet()){
+        resolver = GenericsResolver.resolveGenerics(mapObj);
+        for(Object entry4 : mapObj.entrySet()){
             Map.Entry entry  = (Map.Entry) entry4;
             tempEntry.add(new SaveableEntry(entry.getKey(),entry.getValue(),resolver));
         }
         finalizeObject();
+        System.out.println(tempEntry.size());
     }
     public SaveableHashMap(){}
     public SaveableHashMap(boolean isLinked){
@@ -65,7 +66,7 @@ public class SaveableHashMap extends SaveableMap{
                     return false;
                 map.put(null,value);
             }else{
-               map.put(null,null);
+                map.put(null,null);
             }
         }
 
@@ -79,7 +80,7 @@ public class SaveableHashMap extends SaveableMap{
     @Override
     public Object getOrputDefault(Object key, Object defaultValue) {
         if(!map.containsKey(key))
-           put(key,defaultValue);
+            put(key,defaultValue);
         return get(key);
     }
 
@@ -102,12 +103,18 @@ public class SaveableHashMap extends SaveableMap{
     public void writeBy(StringBuilder builder) {
         builder.append(resolver[0].name()).append("\n");
         builder.append(resolver[1].name()).append("\n");
-        finalizeObject();
+        for(Object n : map.entrySet()){
+            new SaveableEntry(((Map.Entry) n).getKey(),((Map.Entry) n).getValue(),resolver).appendSubSet(builder);
+        }
     }
 
     @Override
     public void appendTo(List<String> builded) {
-
+        try{
+            resolver[0] = GenericsResolver.ItemType.valueOf(builded.get(0));
+            resolver[1] = GenericsResolver.ItemType.valueOf(builded.get(1));
+        }catch (Exception ex){}
+        finalizeObject();
     }
 
     @Override
@@ -117,8 +124,7 @@ public class SaveableHashMap extends SaveableMap{
 
     @Override
     public void appendObject(String str, SaveableData data) {
-        if(str.equals("Java8_SaveableEntry"))
-            tempEntry.add((SaveableEntry) data);
+        tempEntry.add((SaveableEntry) data);
     }
 
     @Override
@@ -135,10 +141,13 @@ public class SaveableHashMap extends SaveableMap{
     public boolean finalizeObject() {
         for(SaveableEntry entry : tempEntry){
             entry.type = resolver;
-            if(entry.finalizeObject())
-                map.put(entry.getKey(),entry.getValue());
+            if(entry.finalizeObject()) {
+                map.put(entry.getKey(), entry.getValue());
+                //System.out.println("Finalized entry");
+            }
 
         }
+        // System.out.println("Entry Size : " + map.size());
         return true;
     }
 }

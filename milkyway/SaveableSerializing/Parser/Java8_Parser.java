@@ -5,6 +5,7 @@ import milkyway.SaveableSerializing.Java8.Collections.List.SaveableLinkedList;
 import milkyway.SaveableSerializing.Java8.Collections.Map.SaveableEntry;
 import milkyway.SaveableSerializing.Java8.Collections.Map.SaveableHashMap;
 import milkyway.SaveableSerializing.Java8.Collections.Map.SaveableLinkedHashMap;
+import milkyway.SaveableSerializing.Java8.Object.SaveableDefaultObject;
 
 /**
  * Created by Developer_Unlocated on 2017-05-11.
@@ -21,8 +22,11 @@ public class Java8_Parser implements ParserRegistry {
     private void registerCollection(){
         registerList();
         registerMap();
+        registerObject();
     }
-
+    private void registerObject(){
+        StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableDefaultObject());
+    }
     private void registerList(){
         StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableArrayList());
         StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableLinkedList());
