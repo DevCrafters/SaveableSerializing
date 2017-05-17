@@ -40,7 +40,7 @@ public class GenericsResolver {
         throw new CollectionsNullException();
 
     }
-    public static ItemType[] resolveGenerics(HashMap map) throws TypeNotSupportedException,CollectionsNullException {
+    public static ItemType[] resolveGenerics(Map map) throws TypeNotSupportedException,CollectionsNullException {
         if(map.size() <= 0)
             return new ItemType[]{ItemType.Empty,ItemType.Empty};
         Map.Entry entry =  new ArrayList<Map.Entry>(map.entrySet()).get(0);

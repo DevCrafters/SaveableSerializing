@@ -29,7 +29,7 @@ public interface TypeResolver {
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
-                try{return Integer.parseInt((String)obj);}catch (Exception ex){}
+                try{return Integer.parseInt((String)obj);}catch (Exception ignored){}
             return obj;
         }
     }
@@ -41,7 +41,7 @@ public interface TypeResolver {
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
-                try{return Byte.parseByte((String)obj);}catch (Exception ex){}
+                try{return Byte.parseByte((String)obj);}catch (Exception ignored){}
             return obj;
         }
     }
@@ -65,7 +65,7 @@ public interface TypeResolver {
         }
         public Object resolve(Object obj){
             if(obj != null && obj instanceof String)
-                try{return Float.parseFloat((String)obj);}catch (Exception ex){}
+                try{return Float.parseFloat((String)obj);}catch (Exception ignored){}
             return obj;
         }
     }

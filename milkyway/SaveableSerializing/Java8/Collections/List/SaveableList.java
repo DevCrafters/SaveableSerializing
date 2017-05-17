@@ -1,13 +1,14 @@
 package milkyway.SaveableSerializing.Java8.Collections.List;
 
 import milkyway.SaveableSerializing.Java8.API.GenericsResolver;
+import milkyway.SaveableSerializing.Java8.Collections.SaveableCollection;
 import milkyway.SaveableSerializing.Java8.Exceptions.TypeNotSupportedException;
 import milkyway.SaveableSerializing.Parser.SaveableData;
 
 /**
  * Created by Developer_Unlocated on 2017-05-11.
  */
-public abstract class SaveableList implements SaveableData{
+public abstract class SaveableList implements SaveableData,SaveableCollection{
     abstract public GenericsResolver.ItemType getGenerics();
     abstract public int size();
     abstract public void add(int index,Object object) throws TypeNotSupportedException;

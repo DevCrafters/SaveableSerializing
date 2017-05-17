@@ -9,6 +9,7 @@ import milkyway.SaveableSerializing.Parser.SaveableData;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,6 +17,16 @@ import java.util.List;
  */
 public class SaveableArrayList extends SaveableList{
     public SaveableArrayList(List list) throws CollectionsNullException,TypeNotSupportedException{
+        type = GenericsResolver.resolveGenerics(list);
+        for(Object a : list)
+            this.list.add(a);
+    }
+    public SaveableArrayList(List list,String listType) throws CollectionsNullException,TypeNotSupportedException{
+        switch (listType){
+            case "LinkedList":
+                this.list = new LinkedList<>();
+                break;
+        }
         type = GenericsResolver.resolveGenerics(list);
         for(Object a : list)
             this.list.add(a);
@@ -108,7 +119,6 @@ public class SaveableArrayList extends SaveableList{
                   builder.append("`").append(a.toString()).append("\n");
                 else   builder.append("`").append("SaveableNxNullPointerItemObject").append("\n");
     }
-
     @Override
     public void appendTo(List<String> builded) {
         try{
@@ -116,33 +126,16 @@ public class SaveableArrayList extends SaveableList{
         }catch (Exception ex){
             type = GenericsResolver.ItemType.String;
         }
-       switch (type){
-
-           case String:
-               for(int i = 1;i < builded.size();i++)
-                   list.add(builded.get(i).substring(1));
-                   break;
-           case Integer:
-               for(int i = 1;i < builded.size();i++)
-                   try{list.add(Integer.parseInt(builded.get(i).substring(1)));}catch(Exception ex){list.add(0);}
-               break;
-           case Double:
-               for(int i = 1;i < builded.size();i++)
-                   try{list.add(Double.parseDouble(builded.get(i).substring(1)));}catch(Exception ex){list.add(0d);}
-               break;
-           case Float:
-               for(int i = 1;i < builded.size();i++)
-                   try{list.add(Float.parseFloat(builded.get(i).substring(1)));}catch(Exception ex){list.add(0f);}
-               break;
-           case Byte:
-               for(int i = 1;i < builded.size();i++)
-                   try{list.add(Byte.parseByte(builded.get(i).substring(1)));}catch(Exception ex){list.add((byte)0);}
-               break;
-           case Saveable:
-               break;
-           case Empty:
-               break;
-       }
+        for(int i = 1;i < builded.size();i++)
+        {
+            String n = builded.get(i);
+            if(n.equals("SaveableNxNullPointerItemObject")){
+                list.add(null);
+                continue;
+            }
+            if(type.getResolver().canResolve(n))
+                list.add(type.getResolver().resolve(n));
+        }
     }
 
     @Override
@@ -153,7 +146,10 @@ public class SaveableArrayList extends SaveableList{
     @Override
     public void appendObject(String str, SaveableData data) {
         if(type == GenericsResolver.ItemType.Saveable)
-            list.add(data);
+            if(str.equals("NullPointer"))
+                list.add(null);
+            else
+                list.add(data);
     }
 
     @Override
@@ -164,5 +160,10 @@ public class SaveableArrayList extends SaveableList{
     @Override
     public SaveableData getNewInstance() {
         return new SaveableArrayList();
+    }
+
+    @Override
+    public boolean finalizeObject() {
+        return false;
     }
 }

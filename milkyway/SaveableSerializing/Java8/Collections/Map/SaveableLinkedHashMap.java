@@ -12,9 +12,9 @@ import java.util.List;
 /**
  * Created by Developer_Unlocated on 2017-05-11.
  */
-public class SaveableLinkedHashMap extends SaveableHashMap{
+public class SaveableLinkedHashMap extends SaveableMapLocal{
     public SaveableLinkedHashMap(HashMap map) throws CollectionsNullException,TypeNotSupportedException {
-        super(map,true);
+        super(map,"LinkedHashMap");
     }
     public SaveableLinkedHashMap(){
         super(true);
@@ -25,7 +25,7 @@ public class SaveableLinkedHashMap extends SaveableHashMap{
     }
     @Override
     public SaveableData getNewInstance() {
-        return new SaveableHashMap(true);
+        return new SaveableLinkedHashMap();
     }
 
 
