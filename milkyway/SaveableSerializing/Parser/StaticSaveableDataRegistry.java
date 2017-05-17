@@ -21,6 +21,7 @@ public class StaticSaveableDataRegistry {
         {
             handle = new StaticSaveableDataRegistry();
             new MinecraftParser_Lower152().register();
+            new MinecraftParser_All().register();
             new Java8_Parser().register();
         }
         return handle;

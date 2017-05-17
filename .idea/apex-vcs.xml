@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ApexVcsIndex">
+    <index-move-record>
+      <option name="firstPath" value="/milkyway/SaveableSerializing/ItemStacks/Lower_1_5_2/PotionEffects.java" />
+      <option name="path" value="/milkyway/SaveableSerializing/ItemStacks/Lower_1_7/PotionEffects.java" />
+    </index-move-record>
+    <index-move-record>
+      <option name="firstPath" value="/milkyway/SaveableSerializing/ItemStacks/Lower_1_5_2/DataTypes" />
+      <option name="path" value="/milkyway/SaveableSerializing/ItemStacks/Lower_1_7/DataTypes" />
+    </index-move-record>
+    <index-move-record>
+      <option name="firstPath" value="/milkyway/SaveableSerializing/ItemStacks/Upper_1_6/DataTypes" />
+      <option name="path" value="/milkyway/SaveableSerializing/ItemStacks/Upper_1_7/DataTypes" />
+    </index-move-record>
+    <index-move-record>
+      <option name="firstPath" value="/milkyway/SaveableSerializing/ItemStacks/Lower_1_5_2/ItemData" />
+      <option name="path" value="/milkyway/SaveableSerializing/ItemStacks/Lower_1_7/ItemData" />
+    </index-move-record>
+    <index-move-record>
+      <option name="firstPath" value="/milkyway/SaveableSerializing/ItemStacks/Upper_1_6/PotionEffects.java" />
+      <option name="path" value="/milkyway/SaveableSerializing/ItemStacks/Upper_1_7/PotionEffects.java" />
+    </index-move-record>
+    <index-move-record>
+      <option name="firstPath" value="/milkyway/SaveableSerializing/ItemStacks/Upper_1_6/ItemData" />
+      <option name="path" value="/milkyway/SaveableSerializing/ItemStacks/Upper_1_7/ItemData" />
+    </index-move-record>
+  </component>
+</project>

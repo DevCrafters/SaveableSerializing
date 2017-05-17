@@ -1,23 +1,23 @@
 package milkyway.SaveableSerializing.Parser;
 
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.DataTypes.ListRGB;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.DataTypes.ListSaveable;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.DataTypes.RGBColor;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.ItemData.EnchantArray;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.ItemData.Enchants;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.ItemData.FireworkEffects;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.ItemData.ItemMetas.*;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.ItemData.ItemStacks;
-import milkyway.SaveableSerializing.ItemStacks.Lower_1_7.PotionEffects;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.DataTypes.ListRGB;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.DataTypes.ListSaveable;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.DataTypes.RGBColor;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.ItemData.EnchantArray;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.ItemData.Enchants;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.ItemData.FireworkEffects;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.ItemData.ItemMetas.*;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.ItemData.ItemStacks;
+import milkyway.SaveableSerializing.ItemStacks.Upper_1_7.PotionEffects;
 
 /**
  * Created by Developer_Unlocated on 2017-05-08.
  *
- * 이 클래스는 마인크래프트 1.5.2 이하의 아이템스택을 저장하는 기본 요소들의 인스턴스를 등록해줍니다.
+ * 이 클래스는 마인크래프트 모든 버전의 아이템을 저장합니다.
  *
  * This class will be register instance of Minecraft ItemStack lower than 1.5.2.
  */
-public class MinecraftParser_Lower152 implements ParserRegistry{
+public class MinecraftParser_All implements ParserRegistry{
     @Override
     public void register() {
         StaticSaveableDataRegistry.getHandle().registerSaveable(new ListRGB());
