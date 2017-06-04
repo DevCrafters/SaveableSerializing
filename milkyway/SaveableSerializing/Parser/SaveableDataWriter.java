@@ -54,6 +54,7 @@ public class SaveableDataWriter {
 
             writer.flush();
             writer.close();
+            toWrite.clear();
             }catch (Exception ex){}
     }
 }
