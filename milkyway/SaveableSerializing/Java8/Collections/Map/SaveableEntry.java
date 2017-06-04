@@ -89,6 +89,12 @@ public class SaveableEntry implements SaveableData,SaveableCollection{
             return true;
         return false;
     }
+
+    @Override
+    public GenericsResolver.ItemType[] getGenericsType() {
+        return new GenericsResolver.ItemType[]{type[0],type[1]};
+    }
+
     @Override
     public String getName() {
         return "Java8_SaveableEntry";

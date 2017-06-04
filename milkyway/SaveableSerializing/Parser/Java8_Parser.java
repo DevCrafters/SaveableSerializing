@@ -4,6 +4,7 @@ import milkyway.SaveableSerializing.Java8.Collections.List.SaveableArrayList;
 import milkyway.SaveableSerializing.Java8.Collections.List.SaveableLinkedList;
 import milkyway.SaveableSerializing.Java8.Collections.Map.*;
 import milkyway.SaveableSerializing.Java8.Object.SaveableDefaultObject;
+import milkyway.SaveableSerializing.Java8.Util.Calendar.SaveableGregorianCalendar;
 
 /**
  * Created by Developer_Unlocated on 2017-05-11.
@@ -21,6 +22,7 @@ public class Java8_Parser implements ParserRegistry {
         registerList();
         registerMap();
         registerObject();
+        registerCalendars();
     }
     private void registerObject(){
         StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableDefaultObject());
@@ -30,6 +32,9 @@ public class Java8_Parser implements ParserRegistry {
         StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableLinkedList());
     }
 
+    private void registerCalendars(){
+        StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableGregorianCalendar());
+    }
     private void registerMap(){
         StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableEntry());
         StaticSaveableDataRegistry.getHandle().registerSaveable(new SaveableLinkedHashMap());

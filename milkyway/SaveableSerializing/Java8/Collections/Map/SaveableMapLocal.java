@@ -1,6 +1,7 @@
 package milkyway.SaveableSerializing.Java8.Collections.Map;
 
 import milkyway.SaveableSerializing.Java8.API.GenericsResolver;
+import milkyway.SaveableSerializing.Java8.Annotation.DeprecatedCause;
 import milkyway.SaveableSerializing.Java8.Exceptions.CollectionsNullException;
 import milkyway.SaveableSerializing.Java8.Exceptions.TypeNotSupportedException;
 import milkyway.SaveableSerializing.Parser.SaveableData;
@@ -52,13 +53,13 @@ public class SaveableMapLocal extends SaveableMap{
             tempEntry.add(new SaveableEntry(entry.getKey(),entry.getValue(),resolver));
         }
         finalizeObject();
-        System.out.println(tempEntry.size());
     }
     public SaveableMapLocal(){}
     public SaveableMapLocal(boolean isLinked){
         if(isLinked)
             map = new LinkedHashMap<>();
     }
+
     @Override
     public GenericsResolver.ItemType[] getGenerics() {
         return new GenericsResolver.ItemType[]{resolver[0],resolver[1]};
@@ -170,5 +171,10 @@ public class SaveableMapLocal extends SaveableMap{
         }
         // System.out.println("Entry Size : " + map.size());
         return true;
+    }
+
+    @Override
+    public GenericsResolver.ItemType[] getGenericsType() {
+        return new GenericsResolver.ItemType[]{resolver[0],resolver[1]};
     }
 }
