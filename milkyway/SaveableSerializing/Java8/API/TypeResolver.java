@@ -21,6 +21,20 @@ public interface TypeResolver {
             return null;
         }
     }
+
+    public class LongResolver implements TypeResolver{
+
+        @Override
+        public boolean canResolve(Object obj) {
+            return obj == null || obj instanceof Long;
+        }
+        public Object resolve(Object obj){
+            if(obj != null)
+                return Long.parseLong(obj.toString());
+
+            return null;
+        }
+    }
     public class IntegerResolver implements TypeResolver{
 
         @Override

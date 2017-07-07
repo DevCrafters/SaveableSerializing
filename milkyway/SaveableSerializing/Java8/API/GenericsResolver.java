@@ -14,7 +14,8 @@ import java.util.*;
 public class GenericsResolver {
     public enum ItemType{
         String(new TypeResolver.StringResolver(),"SaveableNxNullPointerItemObject"),Integer(new TypeResolver.IntegerResolver(),0),Double(new TypeResolver.DoubleResolver(),0d)
-        ,Float(new TypeResolver.FloatResolver(),0f),Byte(new TypeResolver.ByteResolver(),(byte)0),Saveable(new TypeResolver.SaveableResolver(),new NullSaveableData()),Empty(new TypeResolver.EmprtyResolver(),new NullSaveableData());
+        ,Float(new TypeResolver.FloatResolver(),0f),Byte(new TypeResolver.ByteResolver(),(byte)0),Long(new TypeResolver.LongResolver(),0L)
+        ,Saveable(new TypeResolver.SaveableResolver(),new NullSaveableData()),Empty(new TypeResolver.EmprtyResolver(),new NullSaveableData());
         private ItemType(TypeResolver resolver,Object nullDefault){
             solver = resolver;
             this.nullDefault = nullDefault;
@@ -67,6 +68,8 @@ public class GenericsResolver {
             return ItemType.Double;
         if(obj instanceof Float)
             return ItemType.Float;
+        if(obj instanceof Long)
+            return ItemType.Long;
         if(obj instanceof Byte)
             return ItemType.Byte;
         if(obj instanceof SaveableData)

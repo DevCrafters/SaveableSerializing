@@ -31,7 +31,7 @@ public class SaveableArrayList extends SaveableList{
 
     @Override
     public SaveableData getNewInstance() {
-        return new SaveableLinkedList();
+        return new SaveableArrayList();
     }
 
 }

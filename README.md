@@ -1,5 +1,5 @@
 ### 현재 SaveableSerializing 시스템은 <font color = "green"> 안정된 </font> 상태입니다.
-> System Version 0.6.1 (<font color = "green"> Stable </font>)<br>
+> System Version 0.6.3 (<font color = "green"> Stable </font>)<br>
 ## This system is aiming at serializing Java API up to 20%!<br>
 > Current Progress : 0.690% ( 6 / 848 ) - Java 8<br>
 ## 이 시스템은 자바 API 20%의 직렬화를 목표로 하고 있습니다.<br>
